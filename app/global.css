@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+* {
+    font-family: 'PT Serif', serif;
+}
+
+body {
+    /* background-color: #413F42; */
+    color: #000;
+    padding: 2.5ch;
+}
+
+a {
+    color: blue;
+}
+
+.content {
+    padding: 1.5ch;
+    border-radius: 5px;
+}
+
+.book-title {
+    font-family: 'PT Serif', serif;
+    font-style: italic;
+    cursor: pointer;
+}
+
+.chapter {
+    font-family: 'Roboto Mono', Monospace;
+    color: #000;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
