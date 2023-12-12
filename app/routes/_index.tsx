@@ -1,6 +1,5 @@
 import type { MetaFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
-import { useState } from "react";
 
 import PassageSelect from "~/components/PassageSelect";
 import { BibleMeta } from "~/lib/bible_meta";

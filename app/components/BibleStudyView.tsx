@@ -6,7 +6,7 @@ interface BibleStudyViewParams {
 }
 
 export default function BibleStudyView({
-    query, passages
+    query, passages,
 }: BibleStudyViewParams) {
     const fmt_passages = esv_passages_to_array(passages);
 
@@ -24,6 +24,7 @@ export default function BibleStudyView({
                 </li>
             })}
             </ul>
+            <br />
         </div>
     )
 }

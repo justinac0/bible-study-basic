@@ -8,7 +8,8 @@ export async function loader({
 }: LoaderFunctionArgs) {
     const esvApiKey = process.env.ESV_API_AUTH;
 
-    const data = new URLSearchParams({
+    const query_params = new URLSearchParams({
+        'q': params.query ?? "",
         'include-headings': 'false',
         'include-footnotes': 'false',
         'include-verse-numbers': 'true',
@@ -16,7 +17,7 @@ export async function loader({
         'include-passage-references': 'false',
     });
 
-    const url = 'https://api.esv.org/v3/passage/text/?q=' + params.query + data.toString();
+    const url = `https://api.esv.org/v3/passage/text/?${query_params.toString()}`;
 
     return fetch(url, {
         method: "GET",
@@ -37,11 +38,38 @@ export async function loader({
 export default function Passage() {
     const response = useLoaderData<typeof loader>();
 
+    const get_next_chapter = () => {
+        const start = response.passage_meta['0'].next_chapter?.['0'];
+        const end = response.passage_meta['0'].next_chapter?.['1'];
+
+        if (!start) {
+            return false;
+        }
+
+        return start + "-" + end;
+    }
+
+    const get_prev_chapter = () => {
+        const start = response.passage_meta['0'].prev_chapter?.['0'];
+        const end = response.passage_meta['0'].prev_chapter?.['1'];
+
+        if (!start) {
+            return false;
+        }
+
+        return start + "-" + end;
+    }
+
     return (
         <>
-            <Link to="/">back</Link>
+            <Link to="/">back to book view</Link>
             <br />
             <BibleStudyView query={response.query} passages={response.passages} />
+            <br />
+            <div className="flex">
+                { get_prev_chapter() && <Link className="mr-6" to={"/passage/" + get_prev_chapter() + "/"}>previous</Link>}
+                { get_next_chapter() && <Link to={"/passage/" + get_next_chapter() + "/"}>next</Link> }
+            </div>
             <br />
             <a href="/copyright/"><p className="text-sm">ESV Copyright Notice</p></a>
         </>

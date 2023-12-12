@@ -32,5 +32,4 @@ export function esv_passages_to_array(passages: string): Verse[] {
     });
 
     return fmt_passages;
-
 }

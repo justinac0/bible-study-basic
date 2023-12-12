@@ -17,7 +17,7 @@ export default function BookView({
 
     return (
         <div className="mb-6">
-            <h1 className="text-2xl mb-4 book-title bg-gray-300 p-4 rounded-md" onClick={select_book}>{book.title}</h1>
+            <h1 className="text-2xl mb-4 book-title bg-gray-200 p-4 rounded-md" onClick={select_book}>{book.title}</h1>
             <ul className={"grid gap-4 lg:grid-cols-12 md:grid-cols-8 grid-cols-5" + (isHidden ? " hidden" : "")}>
                 {book.chapters.map((chapter, index) => {
                     const location = "/passage/" + book.title + " " + (index + 1).toString() + ":" + "1" + "-" + chapter.verse_count + "/";
