@@ -14,7 +14,7 @@ export default function BibleStudyView({
         <div className="content">
             <h2 className="text-3xl">{query}</h2>
             <br />
-            <ul className="max-w-lg">
+            <ul className="max-w-2xl">
             {fmt_passages.map((passage) => {
                 return <li key={passage.index} className="grid grid-cols-[48px_auto] gap-2">
                 {/* TODO: take notes by interacting with verse */}
@@ -24,7 +24,6 @@ export default function BibleStudyView({
                 </li>
             })}
             </ul>
-            <br />
         </div>
     )
 }

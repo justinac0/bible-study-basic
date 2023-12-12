@@ -22,11 +22,11 @@ export default function Index() {
 
   return (
     <>
-      <h1 className="text-3xl">bible-study-basic (ESV)</h1>
+      <h1 className="text-3xl">bible-study-basic</h1>
       <br />
       <PassageSelect bible_meta={response} />
       <br />
-      <a href="/copyright/"><p className="text-sm">ESV Copyright Notice</p></a>
+      <a href="/copyright/"><p className="text-xs">ESV Copyright Notice</p></a>
     </>
   );
 }

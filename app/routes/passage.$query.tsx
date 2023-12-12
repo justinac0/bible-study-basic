@@ -62,16 +62,15 @@ export default function Passage() {
 
     return (
         <>
-            <Link to="/">back to book view</Link>
+            <Link className="text-xl" to="/">back to book view</Link>
             <br />
             <BibleStudyView query={response.query} passages={response.passages} />
-            <br />
             <div className="flex">
-                { get_prev_chapter() && <Link className="mr-6" to={"/passage/" + get_prev_chapter() + "/"}>previous</Link>}
-                { get_next_chapter() && <Link to={"/passage/" + get_next_chapter() + "/"}>next</Link> }
+                { get_prev_chapter() && <Link className="mr-6 text-xl" to={"/passage/" + get_prev_chapter() + "/"}>previous</Link>}
+                { get_next_chapter() && <Link className="text-xl" to={"/passage/" + get_next_chapter() + "/"}>next</Link> }
             </div>
             <br />
-            <a href="/copyright/"><p className="text-sm">ESV Copyright Notice</p></a>
+            <a href="/copyright/"><p className="text-xs">ESV Copyright Notice</p></a>
         </>
     )
 }
